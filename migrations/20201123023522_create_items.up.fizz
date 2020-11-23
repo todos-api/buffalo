@@ -1,0 +1,7 @@
+create_table("items") {
+	t.Column("id", "uuid", {primary: true})
+	t.Timestamps()
+  t.Column("todo_id", "uuid", {"null": false})
+  t.Column("name", "varchar(255)", {"null": false})
+  t.ForeignKey("todo_id", {"todos": ["id"]}, {"on_delete": "cascade"})
+}
