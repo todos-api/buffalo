@@ -7,14 +7,15 @@ import (
 	"github.com/gofrs/uuid"
 	"time"
 )
+
 // Item is used by pop to map your items database table to your go code.
 type Item struct {
-    ID uuid.UUID `json:"id" db:"id"`
-    CreatedAt time.Time `json:"created_at" db:"created_at"`
-    UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
-		Name string `json:"name" db:"name"`
-		TodoId uuid.UUID `json:"-" db:"todo_id"`
-		Todo *Todo `json:"todo,omitempty" belongs_to:"todo"`
+	ID        uuid.UUID `json:"id" db:"id"`
+	CreatedAt time.Time `json:"created_at" db:"created_at"`
+	UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
+	Name      string    `json:"name" db:"name"`
+	TodoID    uuid.UUID `json:"-" db:"todo_id"`
+	Todo      *Todo     `json:"todo,omitempty" belongs_to:"todo"`
 }
 
 // String is not required by pop and may be deleted

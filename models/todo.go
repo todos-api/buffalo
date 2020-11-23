@@ -7,14 +7,15 @@ import (
 	"github.com/gofrs/uuid"
 	"time"
 )
+
 // Todo is used by pop to map your todos database table to your go code.
 type Todo struct {
-    ID uuid.UUID `json:"id" db:"id"`
-    CreatedAt time.Time `json:"created_at" db:"created_at"`
-    UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
-		Title string `json:"title" db:"title"`
-		CreatedBy string `json:"created_by" db:"created_by"`
-		Items []Item `json:"items,omitempty" has_many:"items"`
+	ID        uuid.UUID `json:"id" db:"id"`
+	CreatedAt time.Time `json:"created_at" db:"created_at"`
+	UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
+	Title     string    `json:"title" db:"title"`
+	CreatedBy string    `json:"created_by" db:"created_by"`
+	Items     []Item    `json:"items,omitempty" has_many:"items"`
 }
 
 // String is not required by pop and may be deleted
@@ -24,10 +25,10 @@ func (t Todo) String() string {
 }
 
 // todos is not required by pop and may be deleted
-type todos []Todo
+type Todos []Todo
 
 // String is not required by pop and may be deleted
-func (t todos) String() string {
+func (t Todos) String() string {
 	jt, _ := json.Marshal(t)
 	return string(jt)
 }

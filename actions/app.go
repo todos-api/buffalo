@@ -61,8 +61,8 @@ func App() *buffalo.App {
 		app.Use(popmw.Transaction(models.DB))
 
 		app.GET("/", HomeHandler)
-		app.Resource("/todos", TodosResource{})
-		app.Resource("/items", ItemsResource{})
+		t := app.Resource("/todos", TodosResource{})
+		t.Resource("/items", ItemsResource{})
 	}
 
 	return app
