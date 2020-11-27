@@ -30,7 +30,7 @@ jobs:
           go-version: ${{ matrix.go_version }}
 
       - name: install buffalo
-        runs: |
+        run: |
           go get github.com/gobuffalo/buffalo/buffalo
           go mod download
           buffalo version
