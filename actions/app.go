@@ -13,7 +13,7 @@ import (
 	contenttype "github.com/gobuffalo/mw-contenttype"
 	"github.com/gobuffalo/x/sessions"
 	"github.com/rs/cors"
-	"github.com/todos-api/coke/models"
+	"github.com/todos-api/buffalo/models"
 )
 
 // ENV is used to help switch settings based on where the
@@ -43,7 +43,7 @@ func App() *buffalo.App {
 			PreWares: []buffalo.PreWare{
 				cors.Default().Handler,
 			},
-			SessionName: "_coke_session",
+			SessionName: "_buffalo_session",
 		})
 
 		// Automatically redirect to SSL

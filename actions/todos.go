@@ -5,7 +5,7 @@ import (
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/pop/v5"
 	"github.com/gobuffalo/x/responder"
-	"github.com/todos-api/coke/models"
+	"github.com/todos-api/buffalo/models"
 	"net/http"
 )
 

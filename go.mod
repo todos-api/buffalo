@@ -1,4 +1,4 @@
-module github.com/todos-api/coke
+module github.com/todos-api/buffalo
 
 go 1.15
 

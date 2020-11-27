@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/todos-api/coke/actions"
+	"github.com/todos-api/buffalo/actions"
 )
 
 // main is the starting point for your Buffalo application.

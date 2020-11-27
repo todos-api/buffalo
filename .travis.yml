@@ -10,10 +10,10 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database coke_test;' -U postgres
+  - psql -c 'create database buffalo_test;' -U postgres
   - mkdir -p $TRAVIS_BUILD_DIR/public/assets
 
-go_import_path: github.com/todos-api/coke
+go_import_path: github.com/todos-api/buffalo
 
 install:
   - go get github.com/gobuffalo/buffalo/buffalo
