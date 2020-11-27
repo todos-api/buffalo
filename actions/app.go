@@ -63,6 +63,8 @@ func App() *buffalo.App {
 		app.GET("/", HomeHandler)
 		t := app.Resource("/todos", TodosResource{})
 		t.Resource("/items", ItemsResource{})
+		app.GET("/health_check", HealthCheckHandler)
+		app.GET("/health_check/handler", HealthCheckHandler)
 	}
 
 	return app
