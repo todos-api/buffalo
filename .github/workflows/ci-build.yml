@@ -43,4 +43,4 @@ jobs:
           soda create --env test
           buffalo test
         env:
-          TEST_DATABASE_URL: postgres://postgres:postgres@postgres/test
+          TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/apptest
