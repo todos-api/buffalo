@@ -34,3 +34,10 @@ jobs:
           go get github.com/gobuffalo/buffalo/buffalo
           go mod download
           buffalo version
+
+      - name: build and run test
+        run: |
+          soda create --env test
+          buffalo test
+        env:
+          TEST_DATABASE_URL: postgres://postgres:postgres@postgres/test
