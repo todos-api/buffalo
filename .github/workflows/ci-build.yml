@@ -10,7 +10,7 @@ jobs:
           - go_version: "1.15"
     services:
       postgres:
-        image: postgres:11
+        image: ghcr.io/infrastructure-as-code/postgres:11-alpine
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: test
