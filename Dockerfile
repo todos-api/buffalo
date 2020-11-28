@@ -1,9 +1,19 @@
 # This is a multi-stage Dockerfile and requires >= Docker 17.05
 # https://docs.docker.com/engine/userguide/eng-image/multistage-build/
-FROM gobuffalo/buffalo:v0.16.17 as builder
+FROM golang:1.15-alpine AS builder
 
 ENV GO111MODULE on
 ENV GOPROXY http://proxy.golang.org
+RUN \
+  apk update && \
+  apk upgrade && \
+  apk add --upgrade \
+    gcc \
+    git \
+    musl-dev \
+    sqlite-dev \
+  && \
+  go get -u -v -tags sqlite github.com/gobuffalo/buffalo/buffalo
 
 RUN mkdir -p /src/github.com/todos-api
 WORKDIR /src/github.com/todos-api
@@ -18,9 +28,7 @@ RUN go mod download
 ADD . .
 RUN buffalo build --static -o /bin/app
 
-FROM alpine
-RUN apk add --no-cache bash
-RUN apk add --no-cache ca-certificates
+FROM scratch
 
 WORKDIR /bin/
 
@@ -36,4 +44,5 @@ EXPOSE 3000
 
 # Uncomment to run the migrations before running the binary:
 # CMD /bin/app migrate; /bin/app
-CMD exec /bin/app
+#CMD exec /bin/app
+ENTRYPOINT ["/bin/app"]
