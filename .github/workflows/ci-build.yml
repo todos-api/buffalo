@@ -34,6 +34,9 @@ jobs:
           go get github.com/gobuffalo/buffalo/buffalo
           go mod download
           buffalo version
+          go get github.com/gobuffalo/pop/...
+          go install github.com/gobuffalo/pop/soda
+          soda --version
 
       - name: build and run test
         run: |
