@@ -19,6 +19,7 @@ import (
 // ENV is used to help switch settings based on where the
 // application is being run. Default is "development".
 var ENV = envy.Get("GO_ENV", "development")
+var FORCE_SSL = envy.Get("FORCE_SSL", "false")
 var app *buffalo.App
 var T *i18n.Translator
 
@@ -89,7 +90,7 @@ func translations() buffalo.MiddlewareFunc {
 // for more information: https://github.com/unrolled/secure/
 func forceSSL() buffalo.MiddlewareFunc {
 	return forcessl.Middleware(secure.Options{
-		SSLRedirect:     ENV == "production",
+		SSLRedirect:     FORCE_SSL == "true",
 		SSLProxyHeaders: map[string]string{"X-Forwarded-Proto": "https"},
 	})
 }
