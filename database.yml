@@ -6,6 +6,8 @@ development:
   password: p0stgr3s
   host: 127.0.0.1
   pool: 5
+  options:
+    sslmode: disable
 
 test:
   url: {{envOr "TEST_DATABASE_URL" "postgres://postgres:p0stgr3s@127.0.0.1:5432/buffalo_test"}}
