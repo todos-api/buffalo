@@ -6,10 +6,9 @@ development:
   password: p0stgr3s
   host: 127.0.0.1
   pool: 5
-  sslmode: require
 
 test:
-  url: {{envOr "DATABASE_URL" "postgres://postgres:p0stgr3s@127.0.0.1:5432/buffalo_test?sslmode=require"}}
+  url: {{envOr "DATABASE_URL" "postgres://postgres:p0stgr3s@127.0.0.1:5432/buffalo_test"}}
 
 production:
-  url: {{envOr "DATABASE_URL" "postgres://postgres:p0stgr3s@127.0.0.1:5432/buffalo_production?sslmode=require"}}
+  url: {{envOr "DATABASE_URL" "postgres://postgres:p0stgr3s@127.0.0.1:5432/buffalo_production"}}

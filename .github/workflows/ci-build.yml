@@ -44,3 +44,4 @@ jobs:
           buffalo test
         env:
           TEST_DATABASE_URL: postgres://postgres:p0stgr3s@localhost:5432/apptest?sslmode=require
+          PGSSLMODE: require
