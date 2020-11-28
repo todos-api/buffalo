@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web:
-    image: "ghcr.io/todos-api/buffalo"
+    image: "ghcr.io/todos-api/buffalo:docker-image"
     environment:
       PORT: "3000"
       GO_ENV: "production"
@@ -32,7 +32,7 @@ services:
         window: "60s"
 
   migrate:
-    image: "ghcr.io/todos-api/buffalo"
+    image: "ghcr.io/todos-api/buffalo:docker-image"
     environment:
       GO_ENV: "production"
       DATABASE_URL: "postgres://postgres:p0stgres@db/app"
@@ -47,7 +47,7 @@ services:
         max_attempts: 0
 
   db:
-    image: "ghcr.io/infrastructure-as-code/postgres:11-alpine"
+    image: "ghcr.io/infrastructure-as-code/postgres:12-alpine"
     environment:
       POSTGRES_DB: "app"
       POSTGRES_USER: postgres
