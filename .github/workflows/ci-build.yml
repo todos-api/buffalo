@@ -10,7 +10,7 @@ jobs:
           - go_version: "1.15"
     services:
       postgres:
-        image: ghcr.io/infrastructure-as-code/postgres:11-alpine
+        image: ghcr.io/infrastructure-as-code/postgres:12-alpine
         env:
           SSL_ONLY: "false"
           POSTGRES_USER: postgres
@@ -35,14 +35,9 @@ jobs:
           go get github.com/gobuffalo/buffalo/buffalo
           go mod download
           buffalo version
-          go get github.com/gobuffalo/pop/...
-          go install github.com/gobuffalo/pop/soda
-          soda --version
 
       - name: build and run test
         run: |
-          soda create --all
           buffalo test
         env:
-          DATABASE_URL: postgres://postgres:p0stgr3s@localhost:5432/app_prod
           TEST_DATABASE_URL: postgres://postgres:p0stgr3s@localhost:5432/app_test
