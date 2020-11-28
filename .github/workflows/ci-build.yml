@@ -13,7 +13,7 @@ jobs:
         image: ghcr.io/infrastructure-as-code/postgres:11-alpine
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: test
+          POSTGRES_DB: postgres
           POSTGRES_PASSWORD: p0stgr3s
         ports:
           - "5432:5432"
